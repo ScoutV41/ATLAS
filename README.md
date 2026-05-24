@@ -10,7 +10,7 @@ A local vision AI pipeline for extracting geolocation data from trail camera ima
 
 ## What it does
 
-ATLAS feeds every image in a folder to a local vision model (Qwen2.5-VL via Ollama), extracts structured terrain data from each frame, and produces:
+ATLAS feeds every image in a folder to a local vision model (Qwen2.5-VL via LM Studio), extracts structured terrain data from each frame, and produces:
 
 - **Shadow angle per hour (UTC)** -  circular-mean averaged across all frames
 - **Solar noon estimate** - derived from shortest-shadow frames, averaged per day
@@ -25,12 +25,12 @@ Dark and night frames are automatically filtered out before analysis.
 ## Requirements
 
 - Python 3.10+
-- [Ollama](https://ollama.com) running locally with `qwen2.5vl:7b` pulled
+- [LM Studio](https://LM Studio.com) running locally with `qwen2.5vl:7b` pulled
 - A folder of trail camera images with UTC timestamps in filenames
 
 ```
-pip install ollama Pillow numpy
-ollama pull qwen2.5vl:7b
+pip install LM Studio Pillow numpy
+LM Studio pull qwen2.5vl:7b
 ```
 
 ---
@@ -76,7 +76,7 @@ All tuneable settings are at the top of the script:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `IMAGES_DIR` | `/images` | Path to your image folder |
-| `MODEL` | `qwen2.5vl:7b` | Ollama vision model to use |
+| `MODEL` | `qwen2.5vl:7b` | LM Studio vision model to use |
 | `BRIGHTNESS_THRESH` | `20` | Frames below this brightness (0-255) are skipped |
 
 Raise `BRIGHTNESS_THRESH` to `30` if too many twilight frames slip through the filter.
@@ -121,7 +121,7 @@ Shadow angles are averaged using **circular mean** (sin/cos decomposition) rathe
 
 ## Performance
 
-Runtime depends on your GPU and Ollama's ROCm/CUDA support:
+Runtime depends on your GPU and LM Studio's ROCm/CUDA support:
 
 | Setup | Approx. speed |
 |-------|--------------|
