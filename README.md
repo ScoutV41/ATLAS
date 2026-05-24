@@ -29,8 +29,8 @@ Dark and night frames are automatically filtered out before analysis.
 - A folder of trail camera images with UTC timestamps in filenames
 
 ```
-pip install LM Studio Pillow numpy
-LM Studio pull qwen2.5vl:7b
+pip install Pillow numpy
+
 ```
 
 ---
