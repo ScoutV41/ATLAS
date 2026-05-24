@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ATLAS v2 — Automated Terrain and Luminance Analysis System
+ATLAS v2 - Automated Terrain and Luminance Analysis System
 Trail Camera Image Analyzer (Fully Optimized & Astronomically Corrected)
 With crash protection, file-stream optimization, and robustness adjustments.
 
@@ -21,12 +21,12 @@ from PIL import Image
 import numpy as np
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-IMAGES_DIR        = Path("/images")   # ← CHANGE THIS to your actual images folder
+IMAGES_DIR        = Path("/images")   # CHANGE THIS to your actual images folder
 OUTPUT_CSV        = Path("output.csv")
 SUMMARY_TXT       = Path("summary.txt")
 SKIPPED_LOG       = Path("skipped.txt")
 MODEL             = "qwen2.5vl:7b"
-BRIGHTNESS_THRESH = 20   # 0-255 — frames with avg brightness below this are skipped
+BRIGHTNESS_THRESH = 20   # 0-255 - frames with avg brightness below this are skipped
                           # 20 is a safe default; raise to 30 if too many twilight frames slip through
 
 PROMPT = """Analyze this trail camera image carefully and return ONLY the following structured data, nothing else:
