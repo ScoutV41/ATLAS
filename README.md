@@ -63,8 +63,7 @@ python ATLASV2.py
 
 Filenames must contain a UTC timestamp in this format:
 ```
-20260518T231126Z.jpg
-CAMERA1_20260519T121552Z.png
+20260518T230318Z.png
 ```
 Anything before or after the timestamp is ignored.
 
