@@ -25,7 +25,7 @@ Dark and night frames are automatically filtered out before analysis.
 ## Requirements
 
 - Python 3.10+
-- [LM Studio](https://LM Studio.com) running locally with `qwen2.5vl:7b` pulled
+- [LM Studio] (https://lmstudio.ai) running locally with `qwen2.5vl:7b` pulled
 - A folder of trail camera images with UTC timestamps in filenames
 
 ```
