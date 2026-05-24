@@ -121,15 +121,16 @@ Shadow angles are averaged using **circular mean** (sin/cos decomposition) rathe
 
 ## Performance
 
-Runtime depends on your GPU and LM Studio's ROCm/CUDA support:
+Runtime depends on your GPU 
 
-| Setup | Approx. speed |
+| Setup | Estimated. speed |
 |-------|--------------|
-| NVIDIA GPU (CUDA) | ~3–8s per image |
-| AMD GPU (ROCm) | ~5–15s per image |
-| CPU only | ~30–60s per image |
+| NVIDIA GPU (CUDA) | ~3-5s per image |
+| AMD GPU (ROCm) | ~5-7s per image |
+| CPU only | ~35–60s per image |
 
-For 600 images on a mid-range GPU expect **1–3 hours** total.
+For 600 images on a mid-range GPU expect **10-15 minutes** total.
+Tested on an RX 9070 XT, Approx runtime: 6 minutes and 38 Seconds.
 
 ---
 
