@@ -14,7 +14,7 @@ A local vision AI pipeline for extracting geolocation data from landscape camera
 
 ## What it does
 
-ATLAS feeds every image in a folder to a local vision model (e.g., Qwen2.5-VL via LM Studio), extracts structured terrain data from each frame, and produces:
+ATLAS feeds every image in a folder to a local vision model (Tested on Qwen2.5-VL via LM Studio), extracts structured terrain data from each frame, and produces:
 
 * **Shadow angle per hour (UTC)** - circular-mean averaged across all frames.
 * **Solar noon estimate** - derived from shortest-shadow frames, averaged per day.
@@ -28,8 +28,8 @@ Dark and night frames are automatically filtered out before analysis to prevent 
 
 ## Requirements
 
-* Python 3.14+
-* [LM Studio](https://lmstudio.ai/) running locally with a compatible vision model loaded (e.g., `qwen2.5vl:7b`).
+* Python 3.10+
+* [LM Studio](https://lmstudio.ai/) running locally with a compatible vision model loaded (`Model used:` `qwen2.5vl:7b`).
 * A folder of landscape images with UTC timestamps in the filenames (e.g., `20260518T230318Z.png`).
 
 ```bash
@@ -43,10 +43,10 @@ pip install Pillow numpy ollama
 
 **1. Set your images folder**
 
-Open your ATLAS script (e.g., `atlas.py`) and edit the configuration section at the top:
+Open your ATLAS script (e.g., `ATLASV1.py`) and edit the configuration section at the top:
 
 ```python
-IMAGES_DIR = Path(r"C:\Users\YourName\Desktop\camimages")
+IMAGES_DIR = Path(r"C:\Users\YourName\Desktop\images")
 
 ```
 
@@ -126,7 +126,7 @@ The most frequently matched biome across all analyzed frames wins the classifica
 
 ## Shadow angle output
 
-Shadow angles are averaged using **circular mean** ($\sin$/$\cos$ decomposition) rather than an arithmetic mean. This prevents wrap-around errors at the $0^\circ$/$360^\circ$ boundary (where $359^\circ$ and $1^\circ$ correctly average to $0^\circ$, not $180^\circ$) and is mathematically required for accurate angular data tracking.
+Shadow angles are averaged using **circular mean** (sin/cos decomposition) rather than an arithmetic mean. This prevents wrap-around errors at the $0°/360° boundary (where 359° and 1° correctly average to 0°, not 180°) and is mathematically required for accurate angular data tracking.
 
 ---
 
