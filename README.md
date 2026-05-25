@@ -1,4 +1,3 @@
-Here is a generalized version of your README. I have removed the specific "V2" constraints, generalized the script names, and smoothed out the instructions so it serves as a clean, universal guide for the ATLAS project as a whole.
 
 ---
 
