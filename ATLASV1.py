@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ATLAS v1 — Automated Terrain and Luminance Analysis System (Lightweight)
+ATLAS v1 - Automated Terrain and Luminance Analysis System (Lightweight)
 A fast, shadow-only trail camera analyzer. 
 Computes average hourly shadow angles and estimates geographic longitude 
 using true solar noon and Equation of Time astrometry.
