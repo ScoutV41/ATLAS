@@ -24,9 +24,11 @@ Dark and night frames are automatically filtered out before analysis.
 
 ## Requirements
 
-- Python 3.10+
+- Python 3.14
 - [LM Studio] (https://lmstudio.ai) running locally with `qwen2.5vl:7b` pulled
-- A folder of trail camera images with UTC timestamps in filenames
+- A folder of camera images (of a landscaoe) with UTC timestamps in filenames
+
+  (I.E, 20260518T230318Z.png)
 
 ```
 pip install Pillow numpy
