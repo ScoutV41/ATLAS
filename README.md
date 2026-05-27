@@ -48,6 +48,12 @@ Open your ATLAS script (e.g., `ATLASV1.py`) and edit the configuration section a
 IMAGES_DIR = Path(r"C:\Users\YourName\Desktop\images")
 
 ```
+**Change models in:**
+MODEL_ENDPOINTS = [
+    "qwen2.5-vl-7b-instruct",
+    "gemma-4-e4b-it"  # <-- Swapped to the short identifier the server expects
+]
+to local models on your machine
 
 **2. Run**
 
