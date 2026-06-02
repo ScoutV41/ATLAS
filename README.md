@@ -165,3 +165,14 @@ For a dataset of 600 images on a mid-range GPU, expect the script to take **10-1
 ## Origin
 
 Built during a 5-day investigation into the [Waterfall Hunt](https://waterfallhunt.com) a real-world treasure hunt involving over $15k in gold coins and USDC hidden somewhere in the American Southwest. ATLAS was developed to systematically analyze trail camera feeds using local AI rather than relying on manual, frame-by-frame human inspection.
+
+##  License & Attribution
+
+This project is licensed under the **GNU General Public License v3.0 (GPLv3)**. 
+
+### What this means for you:
+* **Patent Protection:** Anyone contributing code automatically grants a royalty-free patent license to all users.
+* **Copyleft Requirement:** If you fork, modify, or distribute this software locally, you **must** open-source your modifications under this exact same GPLv3 license.
+* **No Commercial Lockdown:** You cannot take this ensemble logic and wrap it into a closed-source commercial application.
+
+See the [LICENSE](LICENSE) file for the full legal text.
