@@ -133,7 +133,7 @@ The most frequently matched biome across all analyzed frames wins the classifica
 
 ## Shadow angle output
 
-Shadow angles are averaged using **circular mean** (sin/cos decomposition) rather than an arithmetic mean. This prevents wrap-around errors at the $0°/360° boundary (where 359° and 1° correctly average to 0°, not 180°) and is mathematically required for accurate angular data tracking.
+Shadow angles are averaged using **circular mean** (sin/cos decomposition) rather than an arithmetic mean. This prevents wrap-around errors at the 0°/360° boundary (where 359° and 1° correctly average to 0°, not 180°) and is mathematically required for accurate angular data tracking.
 
 ---
 
