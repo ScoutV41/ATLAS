@@ -8,6 +8,7 @@
 ATLAS (Automated Terrain and Luminance Analysis System) is an implementation of Qwen2.5-VL (And various other VLMs) 
 
 A local vision AI pipeline for extracting geolocation data from landscape camera sequences. Originally built for the [Waterfall Hunt](https://waterfallhunt.com) treasure hunt investigation, it is designed to analyze shadow angles, vegetation, and geology across hundreds of timestamped camera frames to estimate longitude, latitude band, and biome.
+(V1-V2 use Ollama, be sure to change to use LLMS!!!)
 
 ---
 
