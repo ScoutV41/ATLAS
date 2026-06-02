@@ -164,4 +164,4 @@ For a dataset of 600 images on a mid-range GPU, expect the script to take **10-1
 
 ## Origin
 
-Built during a 5-day investigation into the [Waterfall Hunt](https://waterfallhunt.com)—a real-world treasure hunt involving over $14k in gold coins and USDC hidden somewhere in the American Southwest. ATLAS was developed to systematically analyze trail camera feeds using local AI rather than relying on manual, frame-by-frame human inspection.
+Built during a 5-day investigation into the [Waterfall Hunt](https://waterfallhunt.com) a real-world treasure hunt involving over $15k in gold coins and USDC hidden somewhere in the American Southwest. ATLAS was developed to systematically analyze trail camera feeds using local AI rather than relying on manual, frame-by-frame human inspection.
