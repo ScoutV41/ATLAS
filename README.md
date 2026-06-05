@@ -35,16 +35,16 @@ V3.x introduces a multi-model ensemble system and global luminance profiling to 
 ## Requirements
 
 * Python 3.10+
-* [LM Studio](https://lmstudio.ai/) OR [Ollama](https://ollama.com/download/windows) running locally with a compatible vision model loaded (`Model used:` `qwen2.5vl:7b`).
+* [LM Studio](https://lmstudio.ai/) OR [Ollama](https://ollama.com/) running locally with a compatible vision model loaded (`Model used:` `qwen2.5vl:7b`).
 * A folder of landscape images with UTC timestamps in the filenames (e.g., `20260518T230318Z.png`).
 * 
-[For V1-2]
+[For V1-2] Install [Ollama](https://ollama.com/download/windows)
 ```bash
 pip install Pillow numpy ollama
 
 ```
 [For V3+]
-Install [LMS](lmstudio.ai)
+Install [LMS](https://lmstudio.ai/download)
 ```bash
 pip install Pillow numpy
 ```
