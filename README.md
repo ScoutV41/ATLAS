@@ -11,6 +11,7 @@ A local vision AI pipeline for extracting geolocation data from landscape camera
 (V1-V2 use Ollama, Will **not** work with LMS)
 
 | Version | Backend | Notes |
+| ---     | ---     | ---   |
 | V1-V2   | Ollama  | Single model, shadow geometry only |
 | V3.x    | LM Studio | Ensemble system, luminance filtering |
 
