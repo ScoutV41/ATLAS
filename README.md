@@ -150,18 +150,10 @@ Shadow angles are averaged using **circular mean** (sin/cos decomposition) rathe
 
 ## Performance
 
-Runtime heavily depends on your hardware acceleration.
-
-| Setup | Est. Speed |
-| --- | --- |
-| NVIDIA GPU (CUDA) | ~3-5s per image |
-| AMD GPU (ROCm) | ~5-7s per image |
-| CPU only | ~35–60s per image |
-
-For a dataset of 600 images on a mid-range GPU, expect the script to take **10-15 minutes** to complete.
+For a dataset of 600 images on a mid-range GPU, expect the script to take **15-25 minutes** to complete.
 *(Tested on an RX 9070 XT: Approximate runtime for a standard batch was 6 minutes and 38 seconds).*
 
-**NOTE: ATLAS-V1 will ALWAYS yield significantly faster results due to being limited to Shadow Geometry**
+**NOTE: ATLAS V1-V2 will ALWAYS yield significantly faster results due to being limited to Shadow Geometry**
 
 ---
 
