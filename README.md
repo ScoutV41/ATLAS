@@ -8,7 +8,11 @@
 ATLAS (Automated Terrain and Luminance Analysis System) is an implementation of Qwen2.5-VL (And various other VLMs) 
 
 A local vision AI pipeline for extracting geolocation data from landscape camera sequences. Originally built for the [Waterfall Hunt](https://waterfallhunt.com) treasure hunt investigation, it is designed to analyze shadow angles, vegetation, and geology across hundreds of timestamped camera frames to estimate longitude, latitude band, and biome.
-(V1-V2 use Ollama, be sure to change to use LLMS!!!)
+(V1-V2 use Ollama, Will **not** work with LMS)
+
+| Version | Backend | Notes |
+| V1-V2   | Ollama  | Single model, shadow geometry only |
+| V3.x    | LM Studio | Ensemble system, luminance filtering |
 
 ---
 
@@ -29,14 +33,19 @@ Dark and night frames are automatically filtered out before analysis to prevent 
 ## Requirements
 
 * Python 3.10+
-* [LM Studio](https://lmstudio.ai/) running locally with a compatible vision model loaded (`Model used:` `qwen2.5vl:7b`).
+* [LM Studio](https://lmstudio.ai/) OR [Ollama](https://ollama.com/download/windows) running locally with a compatible vision model loaded (`Model used:` `qwen2.5vl:7b`).
 * A folder of landscape images with UTC timestamps in the filenames (e.g., `20260518T230318Z.png`).
-
+* 
+[For V1-2]
 ```bash
 pip install Pillow numpy ollama
 
 ```
-
+[For V3+]
+Install [LMS](lmstudio.ai)
+```bash
+pip install Pillow numpy
+```
 ---
 
 ## Usage
