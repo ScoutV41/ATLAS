@@ -28,6 +28,7 @@ ATLAS feeds every image in a folder to a local vision model (Tested on Qwen2.5-V
 * **Suggested search corridor** - accounts for crevice/hill shadow bias.
 
 Dark and night frames are automatically filtered out before analysis to prevent model hallucinations and save processing time.
+V3.x introduces a multi-model ensemble system and global luminance profiling to filter night frames before inference. 
 
 ---
 
