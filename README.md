@@ -69,8 +69,6 @@ MODEL_ENDPOINTS = [
 ```
 to local models on your machine
 
-**[for V3.3]**
-There is no brightness threshold you need to manually set, everything is done automatically via luminance curve.
 
 **2. Run**
 
@@ -113,6 +111,8 @@ All tuneable settings are located at the top of the script:
 | `BRIGHTNESS_THRESH` | `20` | Frames below this brightness average (0-255) are skipped. |
 
 > **Tip:** Raise `BRIGHTNESS_THRESH` to `30` if too many twilight/dusk frames slip through the filter and confuse the model.
+> **[for V3.3]** There is no brightness threshold you need to manually set, everything is done automatically via luminance curve.
+
 
 ---
 
