@@ -69,6 +69,9 @@ MODEL_ENDPOINTS = [
 ```
 to local models on your machine
 
+**[for V3.3]**
+There is no brightness threshold you need to manually set, everything is done automatically via luminance curve.
+
 **2. Run**
 
 ```bash
