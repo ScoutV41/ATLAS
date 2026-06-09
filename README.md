@@ -155,7 +155,7 @@ Shadow angles are averaged using **circular mean** (sin/cos decomposition) rathe
 ## Performance
 
 For a dataset of 600 images on a mid-range GPU, expect the script to take **15-25 minutes** to complete.
-*(Tested on an RX 9070 XT: Approximate runtime for a standard batch was 6 minutes and 38 seconds).*
+*(V3.3 Tested on an RX 9070 XT: Approximate runtime for a standard batch was 13 minutes and 32 seconds).*
 
 **NOTE: ATLAS V1-V2 will ALWAYS yield significantly faster results due to being limited to Shadow Geometry**
 
