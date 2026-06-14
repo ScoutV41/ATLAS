@@ -183,4 +183,4 @@ This project is licensed under the **GNU General Public License v3.0 (GPLv3)**.
 * **Copyleft Requirement:** If you fork, modify, or distribute this software locally, you **must** open-source your modifications under this exact same GPLv3 license.
 * **No Commercial Lockdown:** You cannot take this ensemble logic and wrap it into a closed-source commercial application.
 
-See the [LICENSE](LICENSE) file for the full legal text.
+See the [LICENSE](https://github.com/ScoutV41/ATLAS/blob/main/LICENSE.txt) file for the full legal text.
