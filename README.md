@@ -173,9 +173,6 @@ For a dataset of 600 images on a mid-range GPU, expect the script to take **15-2
 
 Built during a 5-day investigation into the [Waterfall Hunt](https://waterfallhunt.com) a real-world treasure hunt involving over $15k in gold coins and USDC hidden somewhere in the American Southwest. ATLAS was developed to systematically analyze trail camera feeds using local AI rather than relying on manual, frame-by-frame human inspection.
 
-## WHY A normal demo isnt possible
-ATLAS Requires running AI Models locally in order to work, I do not have the compute to keep the models running on my machine for a web API.
-See a video demonstration [here](https://vimeo.com/1199611593?share=copy&fl=sv&fe=ci)
 
 ##  License & Attribution
 
