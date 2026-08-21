@@ -614,7 +614,6 @@ def main() -> None:
     lines = [
         "═══════════════════════════════════════════════════════",
         "  ATLAS v3.3 — Curve-Optimized Autonomous Astrometric Engine",
-        "  (Waterfall Hunt Search-Constrained Build)",
         "═══════════════════════════════════════════════════════",
         "",
         f"  Images processed      : {len(rows)}",
@@ -652,7 +651,7 @@ def main() -> None:
 
     if solar_noon_avg != "N/A":
         try:
-            # Lock the astrometric matrix explicitly to Day 1 (May 18, 2026)
+            # Lock the astrometric matrix explicitly to Day 1 (May 18, 2026) change for the dates of your image set, if using provided data keep the same.
             day_of_year = 138       # May 18th
             eot         = 3.65      # Verified EoT for Day 1
             noon_secs   = 84495     # Verified 23:28:15 UTC trajectory
@@ -696,13 +695,13 @@ def main() -> None:
                 lat_min, lat_max = SEARCH_CENTER[0] - 1.389, SEARCH_CENTER[0] + 1.389
                 lines += [
                     "",
-                    f"  ⚠️  WARNING: Calculated position falls outside the search circle.",
+                    f"  ⚠️  WARNING: Calculated position falls outside the search area.",
                     f"  Valid search boundaries: {lat_min:.3f}°N to {lat_max:.3f}°N | {lon_min:.3f}°W to {lon_max:.3f}°W",
                 ]
             else:
                 lines += [
                     "",
-                    f"  ✅ Dynamic coordinates successfully match your Waterfall Hunt search area!",
+                    f"  ✅ Dynamic coordinates successfully match your Hunt search area!",
                 ]
 
         except Exception as e:
