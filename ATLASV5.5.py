@@ -42,7 +42,7 @@ CAMERA_UTC_OFFSET_HOURS = -7.0
 PROMPTS = {
     "vision_combo": """Analyze flora and shadows in this image. 
 Assume the top of the image is 0 degrees, the right is 90, the bottom is 180, and the left is 270.
-Return ONLY a raw JSON object:
+Return ONLY a raw JSON object without markdown formatting or conversational filler:
 {
     "plant_types": ["list", "of", "species"],
     "vegetation_density": "sparse|moderate|dense",
@@ -51,7 +51,7 @@ Return ONLY a raw JSON object:
 }""",
 
     "geology": """Analyze the rock formations and geology. 
-Return ONLY a raw JSON object:
+Return ONLY a raw JSON object without markdown formatting or conversational filler:
 {
     "rock_colors": ["color1", "color2"],
     "rock_texture": "smooth|rough|porous|angular|layered",
@@ -90,8 +90,10 @@ def image_to_base64(image_path: Path, max_size=(1536, 1536)) -> str:
         return base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 def parse_robust_json(raw_text: str) -> dict:
-    """Violently extracts JSON from LLM output, ignoring conversational filler."""
-    match = re.search(r'\{.*\}', raw_text, re.DOTALL)
+    """Violently extracts JSON from LLM output, ignoring conversational filler and markdown blocks."""
+    # Remove markdown code block wrappers if present
+    clean_text = re.sub(r'```(?:json)?\s*(.*?)\s*```', r'\1', raw_text, flags=re.DOTALL)
+    match = re.search(r'\{.*\}', clean_text, re.DOTALL)
     if match:
         try:
             return json.loads(match.group(0))
@@ -109,6 +111,17 @@ def safe_extract_float(val) -> float | None:
     except Exception:
         return None
 
+def fetch_usgs_elevation(lat: float, lon: float) -> float | None:
+    """Fetches elevation data from Open-Elevation API (Free alternative to USGS)."""
+    try:
+        url = f"https://api.open-elevation.com/api/v1/lookup?lat={lat}&lon={lon}"
+        resp = requests.get(url, timeout=5)
+        if resp.status_code == 200:
+            return resp.json()['results'][0]['elevation']
+    except Exception as e:
+        print(f"  [!] Elevation Error for {lat}, {lon}: {e}", file=sys.stderr)
+    return None
+
 def query_model(model_name: str, prompt: str, image_path: Path | None = None) -> dict:
     """Sends request to local server. Uses OpenAI format without forcing JSON schema."""
     content = [{"type": "text", "text": prompt}]
@@ -125,13 +138,11 @@ def query_model(model_name: str, prompt: str, image_path: Path | None = None) ->
         "model": model_name,
         "messages": [{"role": "user", "content": content}],
         "temperature": 0.1
-        # Removed response_format to prevent HTTP 400 vision backend crashes
     }
 
     try:
         resp = requests.post(API_BASE_URL, json=payload, timeout=300)
         
-        # Print detailed error body if status code is not 200 OK
         if resp.status_code != 200:
             print(f"  [!] HTTP {resp.status_code} Error from LM Studio: {resp.text}", file=sys.stderr)
             return {}
@@ -148,12 +159,11 @@ def generate_candidate_lop(dt_utc: datetime, true_shadow_azimuth: float, toleran
     """Generates a Line of Position (LOP) using vectorized pvlib calculations for speed."""
     target_sun_azimuth = (true_shadow_azimuth + 180.0) % 360.0
     
-    # Create grids
+    # Create grids - focused on North America range as per original logic
     lats = np.arange(30.0, 49.0, 0.5)
     lons = np.arange(-125.0, -65.0, 0.5)
     lon_mesh, lat_mesh = np.meshgrid(lons, lats)
     
-    # Flatten grids into 1D arrays
     lat_flat = lat_mesh.flatten()
     lon_flat = lon_mesh.flatten()
     
@@ -161,9 +171,7 @@ def generate_candidate_lop(dt_utc: datetime, true_shadow_azimuth: float, toleran
     
     # Vectorized calculation: Calculate all 4,500+ coordinates at exactly the same time
     solpos = pvlib.solarposition.get_solarposition(times, lat_flat, lon_flat)
-    
-    # solpos['azimuth'] will have the same shape as your flattened arrays
-    calc_azimuths = solpos['azimuth'].values[0] # Get the array of azimuths for this specific time
+    calc_azimuths = solpos['azimuth'].values[0] 
     
     # Find all indices where the calculated azimuth is within tolerance
     valid_indices = np.where(np.abs(calc_azimuths - target_sun_azimuth) <= tolerance)[0]
